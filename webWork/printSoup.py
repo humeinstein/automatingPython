@@ -1,6 +1,12 @@
 #!/usr/bin/python3
-""" print bs4 object """
+"""
+print bs4 object
+
+run executable ./printSoup.py
+"""
 if __name__ == "__main__":
+
+
     from bs4 import BeautifulSoup as soupy
     myfile = open('python.html')
     soup = soupy(myfile, "lxml")
@@ -22,13 +28,18 @@ if __name__ == "__main__":
     =========================================================
     Lets get the actual content now
     """
+
+
     print("===============================================")
     print("================================================")
     fbUrl = soup.find_all('a')[0]['href']
     inventor = soup.find('div', {"id":"inventor"}).text
     spanContent = soup.select('span')[0].getText()
+    # select(<class-name>)
+    # try-> select(<divId>)
     print("Facebook URL: {}\nInventor: {}\nSpan content: {}".format
           (fbUrl, inventor, spanContent))
+
 
     """
     Much better! now we can easily ready the cleaned data
